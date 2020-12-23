@@ -1,0 +1,29 @@
+<section class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3 class="text-center mb-5">Your Memories</h3>
+        <p *ngIf="isfecthing && !error">Loading... </p>
+          <div *ngFor="let document of documents">
+            <div class="border border-primary mt-3">   
+              <p class="text-muted mt-3 ml-3 d-inline"> Date : {{ document.payload.doc.data().title }}</p> 
+                <div class="d-inline" style="margin-left:320px ;">
+                  <button class="btn btn-sm btn-outline-primary mt-1" [routerLink]="['/edit-document/', document.payload.doc.id]"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-sm btn-outline-primary mt-1 ml-2" (click)="deleteDocument(document)"><i class="fa fa-trash"></i></button>
+                </div>        
+              <h4 class="ml-3">{{ document.payload.doc.data().description }}</h4>              
+              <p class="ml-3 mb-3">{{ document.payload.doc.data().author }}</p>
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
